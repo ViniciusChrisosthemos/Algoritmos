@@ -25,7 +25,7 @@ public class App {
 				List<Node> fpath = findPath(nodes, node.right, right, path);
 				if (!fpath.isEmpty()) return path;
 				node.marked = false;
-				path.remove(path.size()-1);
+				path.remove(0);
 			}
 			
 			if (node.right == left) {
@@ -34,7 +34,7 @@ public class App {
 				List<Node> fpath = findPath(nodes, node.left, right, path);
 				if (!fpath.isEmpty()) return path;
 				node.marked = false;
-				path.remove(path.size()-1);
+				path.remove(0);
 			}
 			
 			if (node.left == right) {
@@ -62,15 +62,12 @@ public class App {
 	
 	public static void main(String[] args) {
 		 List<Node> nodes = new LinkedList<>();
-		 nodes.add(new Node(1,2));
-		 nodes.add(new Node(2,3));
+		 nodes.add(new Node(4,2));
 		 nodes.add(new Node(3,4));
-		 nodes.add(new Node(4,5));
-		 nodes.add(new Node(5,6));
-		 nodes.add(new Node(6,7));
-		 nodes.add(new Node(7,8));
-		 nodes.add(new Node(8,9));
-		 nodes.add(new Node(9,10));
+		 nodes.add(new Node(8,1));
+		 nodes.add(new Node(1,7));
+		 nodes.add(new Node(4,7));
+		 nodes.add(new Node(2,8));
 		 
 		 Collections.shuffle(nodes);
 		 System.out.println(nodes);
